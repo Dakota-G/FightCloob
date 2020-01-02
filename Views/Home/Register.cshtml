@@ -1,0 +1,60 @@
+@model User
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+	<h3> Please Register! </h3>
+
+	Or Log in: <a href ="/">Log in here!</a>
+
+	<form asp-controller="Home" asp-action="AddNewUser" method="POST">
+		<div class="form-group">
+			<span class="error" asp-validation-for="Name"></span>
+			<br>
+			<label asp-for="Name"></label>
+			<input type="text" asp-for="Name" />
+		</div>
+		<div class="form-group">
+			<span class="error" asp-validation-for="Class"></span>
+			<br>
+			<label asp-for="Class"></label>
+			<select asp-for="Class" />
+				<option value="Neophyte">Neophyte</option>
+				<option value="Barbarian">Barbarian</option>
+				<option value="Cleric">Cleric</option>
+				<option value="Fighter">Fighter</option>
+				<option value="Gunslinger">Gunslinger</option>
+				<option value="Knight">Knight</option>
+				<option value="Thief">Thief</option>
+				<option value="Wizard">Wizard</option>
+			</select>
+		</div>
+
+		<div class="form-group">
+			<span class="error" asp-validation-for="Birthdate"></span>
+			<br>
+			<label asp-for="Birthdate"></label>
+			<input type="date" asp-for="Birthdate" />
+		</div>
+		<div class="form-group">
+			<span class="error" asp-validation-for="Email"></span>
+			<br>
+			<label asp-for="Email"></label>
+			<input type="email" asp-for="Email" />
+		</div>
+		<div class="form-group">
+			<span class="error" asp-validation-for="Password"></span>
+			<br>
+			<label asp-for="Password"></label>
+			<input type="password" asp-for="Password" />
+		</div>
+		<div class="form-group">
+			<span class="error" asp-validation-for="Confirm"></span>
+			<br>
+			<label asp-for="Confirm"></label>
+			<input type="password" asp-for="Confirm" />
+		</div>
+
+		<button> Submit </button>
+	</form>
+
+</div>

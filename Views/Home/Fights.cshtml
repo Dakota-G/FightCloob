@@ -1,0 +1,44 @@
+@model List<Fight>
+
+<div class="header">
+    <h1 class="display-4">Welcome To FightCloob!</h1>
+    <p> <a href="/Dashboard">View Your Profile</a> | <a href="Fights/Add">Start A Fight</a></p>
+
+</div>
+
+<div class = "leftSide">
+<h3> Upcoming Fights:</h3>
+	<table class = "fullTable">
+		<tr><th>Fight Date</th><th>Fight Location</th></tr>
+
+@foreach(Fight fight in Model)
+	{	
+		<tr><td>@fight.FightDate</td><td>@fight.Location</td>
+			<td><a href ="Fights/@fight.FightId">View</a></td></tr>
+	}
+
+
+	</table>
+
+</div>
+
+<div class = "rightSide">
+<h3> Battles of the Past: </h3>
+	<table class = "fullTable">
+		<tr><th>Fight Date</th><th>Fight Location</th></tr>
+
+@foreach(Fight fight in Model)
+	{
+		DateTime now = DateTime.Now;
+		if(fight.FightDate < DateTime.Now)
+		{
+			<tr><td>@fight.FightDate</td><td>@fight.Location</td>
+				<td><a href ="Fights/@fight.FightId">View</a></td></tr>
+		}
+	}
+
+
+	</table>
+</div>
+
+</div>

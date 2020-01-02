@@ -1,0 +1,27 @@
+@model Fight
+
+<div class="text-center">
+    <h1 class="display-4">Welcome To FightCloob!</h1>
+	<h3> Please Start A Fight! </h3>
+
+	<a href ="/dashboard">Profile</a> | <a href="/fights">View All Fights</a>
+
+	<form asp-controller="Home" asp-action="FightForm" method="POST">
+		<div class="form-group">
+			<span class="error" asp-validation-for="Location"></span>
+			<br>
+			<label asp-for="Location"></label>
+			<input type="text" asp-for="Location" />
+		</div>
+
+		<div class="form-group">
+			<span class="error" asp-validation-for="FightDate"></span>
+			<br>
+			<label asp-for="FightDate"></label>
+			<input type="datetime-local" asp-for="FightDate" />
+		</div>
+		<button> Submit </button>
+	</form>
+
+
+</div>

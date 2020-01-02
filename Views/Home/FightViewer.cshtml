@@ -1,0 +1,59 @@
+@model Fight
+
+
+<div class="header">
+    <h1 class="display-4">Welcome To FightCloob!</h1>
+    <p> <a href="/Dashboard">View Your Profile</a> | <a href="/Fights">View All Fights</a> | <a href="/Fights/Add">Start A Fight</a></p>
+</div>
+
+<div class = "context">
+	<table class = "fullTable">
+		<tr><th>FightDate:</th><td>@Model.FightDate</td></tr>
+		<tr><th>Location:</th><td>@Model.Location</td></tr>
+		<tr><th>Creator:</th><td>@Model.Creator.Name</td></tr>
+	</table>
+
+<a class = "superLink" href="/Fights/@Model.FightId/Leave"> Leave The Fight </a>
+</div>
+
+<div class = "TauntTable">
+	<form asp-controller ="Home" asp-action="AddTaunt" method="POST">
+		<input type="text" name="Message">
+		<button> Taunt! </button>
+	</form>
+
+@foreach(Taunt message in ViewBag.AllTaunts)
+	{
+		<p class = "taunt"><b>@message.Message</b><br>
+		from: @message.Creator.Name at: @message.CreatedAt</p>
+	}
+
+</div>
+
+<div class = "redTeam">
+	<a class = "superLink" href="/Fights/@Model.FightId/Red"> Join The Red Team! </a>
+<h3> Red Team:</h3>
+<ul>
+@foreach(Team team in ViewBag.AllTeams)
+{
+	if(team.TeamColor == "Red")
+	{
+		<li>@team.Participant.Name</li>
+	}
+}
+</ul>
+</div>
+
+<div class = "blueTeam">
+	<a class = "superLink" href="/Fights/@Model.FightId/Blue"> Join The Blue Team! </a>
+<h3> Blue Team:</h3>
+<ul>
+@foreach(Team team in ViewBag.AllTeams)
+{
+	if(team.TeamColor == "Blue")
+	{
+		<li>@team.Participant.Name</li>
+	}
+}
+</ul>
+</div>

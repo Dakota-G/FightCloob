@@ -1,0 +1,24 @@
+﻿@model LoginUser
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+	<h3> Please Login! </h3>
+
+	Or <a href ="NewUser">Register Here!</a>
+
+	<form asp-controller="Home" asp-action="LoginCheck" method="POST">
+		<div class="form-group">
+			<span class="error" asp-validation-for="Email"></span>
+			<br>
+			<label asp-for="Email"></label>
+			<input type="text" asp-for="Email" />
+		</div>
+		<div class="form-group">
+			<span class="error"  asp-validation-for="Password"></span>
+			<br>
+			<label asp-for="Password"></label>
+			<input type="text" asp-for="Password" />
+		</div>
+		<button> Log In </button>
+	</form>
+</div>

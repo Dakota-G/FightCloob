@@ -1,0 +1,53 @@
+@model User
+
+<div class="header">
+    <h1 class="display-4">Welcome To FightCloob!</h1>
+    <p> <a href="Fights">View All Fights</a> | <a href="Fights/Add">Start A Fight</a></p>
+
+</div>
+
+<div class="context">
+<h1> Your Profile: </h1>
+<table class = "fullTable">
+	<tr><th>Your Name:</th><td>@Model.Name</td></tr>
+	<tr><th>Your Class:</th><td>@Model.Class</td></tr>
+	<tr><th>Date You Joined The FightCloob:</th><td>@Model.CreatedAt</td></tr>
+</table>
+<br>
+<h3> Fights You've Started: </h3>
+<ul>
+@foreach(var fight in ViewBag.myFights)
+{
+	<li><p><b>@fight.FightDate - @fight.Location </b>| Created: @fight.CreatedAt | <a href ="Fights/@fight.FightId">View</a> <a href="Fights/@fight.FightId/Edit">Edit</a></p></li>
+	<br>
+}
+</ul>
+</div>
+
+<div class = "leftSide">
+<h3>Your Upcoming Fights:</h3>
+@foreach(Fight fight in ViewBag.AllFights)
+{
+	@foreach(Team team in fight.Roster)
+	{
+		@if(team.UserId == Model.UserId && fight.FightDate > DateTime.Now)
+		{
+			<p><b>@fight.Location | @fight.FightDate </b>| <a href ="Fights/@fight.FightId">View</a></p>
+		}
+	}
+}
+</div>
+
+<div class = "rightSide">
+<h3>Your Past Fights:</h3>
+@foreach(Fight fight in ViewBag.AllFights)
+{
+	@foreach(Team team in fight.Roster)
+	{
+		@if(team.UserId == Model.UserId && fight.FightDate < DateTime.Now)
+		{
+			<p><b>@fight.Location | @fight.FightDate </b>| <a href ="Fights/@fight.FightId">View</a></p>
+		}
+	}
+}
+</div>

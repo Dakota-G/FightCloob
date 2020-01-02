@@ -1,0 +1,78 @@
+.topSide{
+	border: 1px solid black;
+	margin-bottom: 25px;
+	border: 2px solid black;
+	background-color: #e19d9d;
+}
+
+.leftSide{
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 9%;
+	border: 1px solid black;
+	width: 40%;
+	padding: 5px;
+	height: 250px;
+	overflow-y: scroll;
+}
+
+.rightSide{
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 9%;
+	border: 1px solid black;
+	padding: 5px;
+	height: 250px;
+	overflow-y: scroll;
+}
+
+.fullTable{
+	width: 90%;
+}
+
+.taunt{
+	border: 1px solid black;
+	background-color: #f1e7da;
+	padding: 5px;
+}
+
+.redTeam{
+	display: inline-block;
+	vertical-align: top;
+	margin-right: 9%;
+	border: 1px solid red;
+	width: 40%;
+	background-color: #ffa899;
+	padding: 5px;
+	height: 250px;
+	overflow-y: scroll;
+}
+
+.blueTeam{
+	width: 40%;
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 9%;
+	border: 1px solid blue;
+	background-color: #a3c2db;
+	padding: 5px;
+	height: 250px;
+	overflow-y: scroll;
+}
+
+.context{
+	border: 2px solid black;
+	padding: 10px;
+	margin-bottom: 10px;
+	font-size: 150%;
+}
+
+.superLink{
+	border: 1px solid black;
+	background: silver;
+	border-radius: 10px;
+	color: black;
+	font-weight: bold;
+	padding: 2px;
+}
